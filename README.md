@@ -1,45 +1,29 @@
-# Satellite Telemetry System
+# Satellite Telemetry Dashboard
 
-A real-time satellite telemetry monitoring system that simulates and visualizes satellite health data.
+A real-time dashboard for monitoring satellite telemetry data, including temperature, battery levels, altitude, and signal strength.
 
-## System Overview
+## Features
 
-This project implements a complete satellite telemetry monitoring system with:
+- Real-time telemetry data visualization
+- Interactive charts showing historical data
+- Anomaly detection and highlighting
+- Time range filtering for data display
+- Responsive design for various screen sizes
 
-- **Telemetry Generator**: Simulates a satellite by sending telemetry data via UDP every second
-- **Backend API**: 
-  - Ingests telemetry data via UDP (port 8089)
-  - Stores data in PostgreSQL
-  - Provides REST API endpoints for data access
-- **Frontend Dashboard**:
-  - Real-time telemetry visualization
-  - Interactive time-series charts
-  - Live gauge displays for current values
-  - Anomaly detection and alerts
+## Prerequisites
 
-## Technology Stack
+- Docker
+- Docker Compose
 
-- **Frontend**:
-  - React with TypeScript
-  - Chart.js for data visualization
-  - Material-UI for components
-  - React Query for data fetching
-- **Backend**:
-  - Go
-  - PostgreSQL for data storage
-  - UDP server for telemetry ingestion
-  - REST API for data access
-- **Infrastructure**:
-  - Docker and Docker Compose
-  - Nginx for frontend serving
+## Quick Start
 
-## Getting Started
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:BrandonHargitay/turion-take-home.git
+   cd turion-take-home
+   ```
 
-1. Prerequisites:
-   - Docker
-   - Docker Compose
-
-2. Run the system:
+2. Start the application:
    ```bash
    docker-compose up -d
    ```
@@ -48,24 +32,46 @@ This project implements a complete satellite telemetry monitoring system with:
    - Frontend: http://localhost:3000
    - API: http://localhost:8080
 
+## Architecture
+
+The application consists of several components:
+
+- **Frontend**: React application with TypeScript
+- **Backend API**: Go service handling telemetry data
+- **Database**: PostgreSQL for data storage
+- **Telemetry Generator**: Simulates satellite telemetry data
+
+## Development
+
+The project uses Docker Compose for local development. Each component can be rebuilt individually:
+
+```bash
+# Rebuild and restart specific service
+docker-compose up -d --build [service_name]
+
+# Rebuild all services
+docker-compose up -d --build
+```
+
+## Project Structure
+
+```
+├── backend/             # Go backend API
+│   ├── migrations/      # Database migrations
+│   └── src/            # Source code
+├── frontend/           # React frontend
+│   ├── src/           # Source code
+│   └── public/        # Static files
+└── docker-compose.yml  # Docker composition
+```
+
+
 ## Services
 
 - **postgres**: PostgreSQL database (port 5432)
 - **api**: Backend API service (port 8080)
 - **frontend**: Web dashboard (port 3000)
 - **telemetry**: Telemetry data generator
-
-## Project Structure
-
-```
-.
-├── backend/             # Go backend service
-│   ├── src/            # Backend source code
-│   └── migrations/     # Database migrations
-├── frontend/           # React frontend
-│   └── src/           # Frontend source code
-└── docker-compose.yml  # Service configuration
-```
 
 ## API Endpoints
 
