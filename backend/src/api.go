@@ -16,8 +16,43 @@ func startAPIServer(ctx context.Context, db *DB) error {
 	app.Use(logger.New())
 	app.Use(cors.New())
 
+	// Root endpoint with API information
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"message": "Satellite Telemetry API",
+			"version": "1.0",
+			"endpoints": []string{
+				"/api/v1/telemetry - Get historical telemetry data",
+				"/api/v1/telemetry/current - Get current telemetry",
+				"/api/v1/telemetry/anomalies - Get anomaly data",
+			},
+		})
+	})
+
 	// Setup API routes
 	api := app.Group("/api/v1")
+
+	// API documentation
+	api.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"endpoints": map[string]interface{}{
+				"/telemetry": map[string]string{
+					"description": "Get historical telemetry data",
+					"method":     "GET",
+					"params":     "start_time (ISO8601), end_time (ISO8601)",
+				},
+				"/telemetry/current": map[string]string{
+					"description": "Get current telemetry data",
+					"method":     "GET",
+				},
+				"/telemetry/anomalies": map[string]string{
+					"description": "Get anomaly data",
+					"method":     "GET",
+					"params":     "start_time (ISO8601), end_time (ISO8601)",
+				},
+			},
+		})
+	})
 
 	// Get telemetry data with time range
 	api.Get("/telemetry", func(c *fiber.Ctx) error {
