@@ -1,5 +1,7 @@
 # Satellite Telemetry Dashboard
 
+![Docker Tests](https://github.com/BrandonHargitay/turion-take-home/actions/workflows/ci.yml/badge.svg)
+
 A real-time dashboard for monitoring satellite telemetry data, including temperature, battery levels, altitude, and signal strength.
 
 ## Features
