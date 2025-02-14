@@ -75,6 +75,15 @@ docker-compose up -d --build
 
 ## API Endpoints
 
+### API Documentation
+```
+GET /
+Response: Overview of available endpoints
+
+GET /api/v1/
+Response: Detailed API documentation
+```
+
 ### Get Historical Telemetry Data
 ```
 GET /api/v1/telemetry
