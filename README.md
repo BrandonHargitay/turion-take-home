@@ -29,10 +29,9 @@ A real-time dashboard for monitoring satellite telemetry data, including tempera
    ```
 
 3. Access the dashboard:
-   - Frontend: http://localhost:3000
-   - API: http://localhost:8080
-
-## Architecture
+    - Frontend: http://localhost:3000
+    - API: http://localhost:8080
+      - http://localhost:8080/api/v1/
 
 The application consists of several components:
 
@@ -51,6 +50,18 @@ docker-compose up -d --build [service_name]
 
 # Rebuild all services
 docker-compose up -d --build
+```
+
+## Cleanup
+
+To stop the application and clean up resources:
+
+```bash
+# Stop all services
+docker-compose down
+
+# Remove all containers, networks, and volumes related to the project
+docker-compose down -v --rmi all
 ```
 
 ## Project Structure
