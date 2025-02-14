@@ -27,15 +27,28 @@ Github Actions:
 
 ## Quick Start
 
+You can run this application in two ways:
+
+### Option 1: Using Pre-built Images 
+
+Pull and run the pre-built images from DockerHub:
+```bash
+docker-compose pull   # Pull pre-built images
+docker-compose up -d  
+```
+
+### Option 2: Building from Source
+
+Build and run the images locally:
 1. Clone the repository:
    ```bash
    git clone git@github.com:BrandonHargitay/turion-take-home.git
    cd turion-take-home
    ```
 
-2. Start the application:
+2. Build and start the application:
    ```bash
-   docker-compose up -d
+   docker-compose up -d --build  
    ```
 
 3. Access the dashboard:

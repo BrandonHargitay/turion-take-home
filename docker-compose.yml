@@ -21,6 +21,7 @@ services:
 
   # Backend API
   api:
+    image: brandonhargitay/turion-take-home-api:latest
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -34,6 +35,7 @@ services:
 
   # Frontend
   frontend:
+    image: brandonhargitay/turion-take-home-frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -44,6 +46,7 @@ services:
 
   # Telemetry Generator
   telemetry:
+    image: brandonhargitay/turion-take-home-telemetry:latest
     build:
       context: .
       dockerfile: telemetry.Dockerfile
