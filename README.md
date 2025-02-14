@@ -17,6 +17,14 @@ A real-time dashboard for monitoring satellite telemetry data, including tempera
 - Docker
 - Docker Compose
 
+## Testing
+
+Github Actions:
+- Builds all Docker containers
+- Starts the services
+- Verifies the API and frontend are accessible
+- Runs on every push and pull request to main branch
+
 ## Quick Start
 
 1. Clone the repository:
